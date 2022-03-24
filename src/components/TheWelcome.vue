@@ -11,15 +11,15 @@ const buscarfecha = () => {
   if(fecha !== ''){
 
     axios
-       .get('http://localhost:8080/api/ventas/buscarfecha',{
-       params: {
+       .post('http://localhost:8080/api/ventas/fecha',{
+       data: {
      fecha
    }
        })
        
        .then(response => {
          dataVentas.value = response.data
-       })
+       }).catch(error => console.log(error))
   }
 }
 const verdetalle = idventa => {
